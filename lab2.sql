@@ -12,6 +12,14 @@ create database metro_stgo; -- crea la base de datos
 
 create extension if not exists "uuid-ossp"; -- crea la extension para poder usar uuid
 
+--CODIGOS
+--LINEAS
+--ESTACIONES
+--REPORTE
+--REPORTADORES
+--REPORTES_ESATCIONES 
+
+
 create table estaciones(
     -- se crea la tabla estaciones
     id varchar(5) not null,
