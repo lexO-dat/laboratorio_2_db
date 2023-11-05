@@ -2,7 +2,6 @@
 -- Laura Romero - 26575596-8
 --Damian Elizondo - 21603579-8
 
-
 --sql para crear esta base de datos:
 CREATE DATABASE metro_stgo; -- crea la base de datos
 
@@ -291,5 +290,27 @@ INSERT INTO reportes_estaciones(estacion_id, fecha_hora, reportador_id, reporte_
 ('L1-25', '2023/11/02:8:55:30', '15876325-6', '25' ),
 ('L1-26', '2023/11/02:8:55:30', '15876325-6', '25' ),
 ('L1-27', '2023/11/02:8:55:30', '15876325-6', '25' );
+
+-- QUERIES
+
+-- PREGUNTA DE CORXEA ELIMINANDO LINEA 4 (PREGUNTA 5)
+--Al ejecutar este comando (delete from lineas where id='L4';) se genero el siguiente error (update o delete en «lineas» viola la llave foránea «estaciones_linea_id_fkey» 
+--en la tabla «estaciones» DETALLE: La llave (id)=(L4) todavía es referida desde la tabla «estaciones».) el cual menciona de que como las 
+--estaciones de la linea 4 están linkeadas a la linea 4 no se pueden borrar
+--Se tuvieron que eliminar las 23 estaciones que requieren la linea 4 permitiendonos asi ejecutar el comando.
+
+--metro_stgo=# delete from lineas where id='L4';
+--ERROR:  update o delete en «lineas» viola la llave foránea «estaciones_linea_id_fkey» en la tabla «estaciones»
+--DETALLE:  La llave (id)=(L4) todavía es referida desde la tabla «estaciones».
+--metro_stgo=# DELETE FROM estaciones WHERE linea_id = 'L4';
+--DELETE 23
+--metro_stgo=# delete from lineas where id='L4';
+--DELETE 1
+
+--QUERY FINAL:
+DELETE FROM estaciones WHERE linea_id = 'L4';
+DELETE FROM lineas WHERE id='L4';
+
+
 
 
