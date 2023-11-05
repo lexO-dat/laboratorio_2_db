@@ -1,83 +1,78 @@
--- estaciones: id, nombre, fecha_inauguracion, linea_id, color_estacion
--- lineas: id, color, anio 
--- reportes_estaciones: id, estacion_id, fecha_hora, reporte_id, reportador_id
--- reporte: id, fecha_hora, codigo_id, comentario, reportador_id
--- reportador: id, nombres, apellidos, sueldo
-
 --sql para crear esta base de datos:
 
-create database metro_stgo; -- crea la base de datos
+CREATE DATABASE metro_stgo; -- crea la base de datos
 
 \c metro_stgo; -- conecta a la base de datos
 
-create extension if not exists "uuid-ossp"; -- crea la extension para poder usar uuid
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- crea la extension para poder usar uuid
 
 --CODIGOS
 --LINEAS
 --ESTACIONES
---REPORTE
 --REPORTADORES
---REPORTES_ESATCIONES 
+--REPORTE
+--REPORTES_ESTACIONES 
 
-
-create table estaciones(
-    -- se crea la tabla estaciones
-    id varchar(5) not null,
-    nombre varchar(30) not null,
-    fecha_inauguracion date not null,
-    linea_id varchar(3) not null,
-    color_estacion varchar(5),
-    primary key (id)
-    foreign key (linea_id) references lineas(id)
+CREATE TABLE codigos(
+    -- se crea la tabla reportador
+    id varchar(10) NOT NULL,
+    descripcion varchar(255) NOT NULL,
+    PRIMARY KEY (id)
 );
 
-create table lineas(
+CREATE TABLE lineas(
     -- se crea la tabla lineas
-    id varchar(3) not null,
-    color varchar(20) not null,
-    anio date not null,
-    primary key (id)
+    id varchar(3) NOT NULL,
+    color varchar(20) NOT NULL,
+    anio date NOT NULL,
+    PRIMARY KEY (id)
 );
 
-create table reportes_estaciones(
-    -- se crea la tabla reportes_estaciones
-    id serial not null,
-    estacion_id varchar(4) not null,
-    fecha_hora timestamp not null,
-    reporte_id int not null,
-    reportador_id varchar(10) not null,
-    primary key (id),
-    foreign key (estacion_id) references estaciones(id),
-    foreign key (reportador_id) references reportador(id),
-    foreign key (reporte_id) references reporte(id)
+
+CREATE TABLE estaciones(
+    -- se crea la tabla estaciones
+    id varchar(4) NOT NULL,
+    nombre varchar(30) NOT NULL,
+    fecha_inauguracion date NOT NULL,
+    linea_id varchar(3) NOT NULL,
+    color_estacion varchar(5),
+    PRIMARY KEY (id)
+    FOREIGN KEY (linea_id) REFERENCES lineas(id)
 );
 
-create table reporte(
+CREATE TABLE reportador(
+    -- se crea la tabla reportador
+    id varchar(10) NOT NULL,
+    nombres varchar(50) NOT NULL,
+    apellidos varchar(50) NOT NULL,
+    sueldo int NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE reporte(  --ID_CREA = REPORTADOR_ID
     -- se crea la tabla reporte 
-    id serial not null,
-    fecha_hora timestamp not null,
-    codigo_id varchar(10) not null,
-    comentario varchar(255) not null,
-    reportador_id varchar(10) not null,
-    primary key (id),
-    foreign key (reportador_id) references reportador(id),
-    foreign key (codigo_id) references codigo(id)
+    id serial NOT NULL,
+    fecha_hora timestamp NOT NULL,
+    codigo_id varchar(10) NOT NULL,
+    comentario varchar(255) NOT NULL,
+    reportador_id varchar(10) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (reportador_id) REFERENCES reportador(id),
+    FOREIGN KEY (codigo_id) REFERENCES codigo(id)
 );
 
-create table reportador(
-    -- se crea la tabla reportador
-    id varchar(10) not null,
-    nombres varchar(50) not null,
-    apellidos varchar(50) not null,
-    sueldo int not null,
-    primary key (id)
-);
-
-create table codigos(
-    -- se crea la tabla reportador
-    id varchar(10) not null,
-    descripcion varchar(255) not null,
-    primary key (id)
+CREATE TABLE reportes_estaciones(
+    -- se crea la tabla reportes_estaciones
+    id serial NOT NULL,
+    estacion_id varchar(4) NOT NULL,
+    fecha_hora timestamp NOT NULL,
+    reporte_id int NOT NULL,
+    reportador_id varchar(10) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (estacion_id) REFERENCES estaciones(id),
+    FOREIGN KEY (reportador_id) REFERENCES reportador(id),
+    FOREIGN KEY (reporte_id) REFERENCES reporte(id)
 );
 
 insert into lineas (id, color, anio) values
