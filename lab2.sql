@@ -257,7 +257,7 @@ INSERT TO reportador(id, nombres, apellidos, sueldo) VALUES
 
 INSERT TO reporte(id, fecha_hora, codigo_id, comentario, reportador_id) VALUES
 
-('25','2023/11/02:8:45:12', 'k5', 'Corte de luz masivo en linea 1', '11521635-4' ),
+('25','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' ),
 
 INSERT TO reportes_estaciones(id, estacion_id, fecha_hora, reportador_id, reporte_id) VALUES
 
