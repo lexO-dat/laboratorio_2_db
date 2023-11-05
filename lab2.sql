@@ -63,7 +63,7 @@ CREATE TABLE reporte(  --ID_CREA = REPORTADOR_ID
     reportador_id varchar(10) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (reportador_id) REFERENCES reportador(id),
-    FOREIGN KEY (codigo_id) REFERENCES codigo(id)
+    FOREIGN KEY (codigo_id) REFERENCES codigos(id)
 );
 
 CREATE TABLE reportes_estaciones(
