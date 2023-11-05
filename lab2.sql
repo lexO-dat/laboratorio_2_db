@@ -78,7 +78,7 @@ CREATE TABLE reportes_estaciones(
 insert into lineas (id, color, anio) values
 ("L1", "ROJA", "1969/09/04"),
 ("L2", "AMARILLA", "1978/01/31"),
-("L3", "VERDE-OLIVO", "2019/01/22"),
+("L3", "CAFE", "2019/01/22"),
 ("L4", "AZUL", "2005/11/30"),
 ("L4A", "CELESTE", "2006/08/16"),
 ("L5", "VERDE", "1997/04/05"),
