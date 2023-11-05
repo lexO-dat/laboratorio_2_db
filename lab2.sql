@@ -1,5 +1,9 @@
---sql para crear esta base de datos:
+-- Lucas Abello - RUT
+-- Laura Romero - 26575596-8
+--Damian Elizondo - 21603579-8
 
+
+--sql para crear esta base de datos:
 CREATE DATABASE metro_stgo; -- crea la base de datos
 
 \c metro_stgo; -- conecta a la base de datos
@@ -250,3 +254,4 @@ INSERT TO reportador(id, nombres, apellidos, sueldo) VALUES
 ('15876325-6','Brian', 'Bastias', 2000000 ),
 ('21603579-8','Damian', 'Elizondo', 100000),
 ('26575596-8','Laura', 'Romero', 100000 ),
+
