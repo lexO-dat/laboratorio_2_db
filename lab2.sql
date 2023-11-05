@@ -261,11 +261,11 @@ INSERT INTO reportador(id, nombres, apellidos, sueldo) VALUES
 
 INSERT INTO reporte(id, fecha_hora, codigo_id, comentario, reportador_id) VALUES
 ('25','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
-('26','2023/11/15:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
-('27','2023/12/20:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
-('28','2023/11/0:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
-('29','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
-('30','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+('26','2023/11/15:9:35:18', 'A0', 'Cierre completo al publico estacion', '21603579-8' );
+('27','2023/12/05:11:55:25', 'SS', 'Persona en la via', '26575596-8' );
+('28','202/12/24:12:15:03', 'Z6', 'Asalto en estacion', '11521635-4' );
+('29','2023/12/26:15:30:50', 'X10', 'Explosion en estacion/ Ataque por Corxea', '21603579-8' );
+('30','2023/12/31:20:10:36', 'C8', 'Pelea en estacion', '26575596-8' );
 
 
 
