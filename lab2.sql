@@ -261,6 +261,13 @@ INSERT INTO reportador(id, nombres, apellidos, sueldo) VALUES
 
 INSERT INTO reporte(id, fecha_hora, codigo_id, comentario, reportador_id) VALUES
 ('25','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+('26','2023/11/15:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+('27','2023/12/20:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+('28','2023/11/0:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+('29','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+('30','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
+
+
 
 INSERT INTO reportes_estaciones(estacion_id, fecha_hora, reportador_id, reporte_id) VALUES
 ('L1-1', '2023/11/02:8:55:30', '15876325-6', '25' ),
