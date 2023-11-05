@@ -1,4 +1,4 @@
--- Lucas Abello - RUT
+-- Lucas Abello - 21450324-7
 -- Laura Romero - 26575596-8
 --Damian Elizondo - 21603579-8
 
