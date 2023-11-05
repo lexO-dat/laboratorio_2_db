@@ -242,7 +242,7 @@ INSERT INTO estaciones (id, nombre, fecha_inauguracion, linea_id, color_estacion
 
 INSERT TO codigos(id, descripcion) VALUES
 ('A0', 'Cierre completo al publico'),
-('K5', 'Corte de luz en estacion'),
+('K5', 'Corte de luz en linea'),
 ('X10', 'Explosion en estacion'),
 ('Z6', 'Robo en estacion'),
 ('C8', 'Pelea en estacion'),
@@ -264,3 +264,4 @@ INSERT TO reportes_estaciones(id, estacion_id, fecha_hora, reportador_id, report
 ('125','--------', '2023/11/02:8:55:30', '11521635-4', '25' ),
 
 -- ES POR CADA UNA DE LAS ESTACIONES DE LA LINEA 1??????
+-- CODIGO DE CORTE DE LUZ POR TODA LA LINEA ???
