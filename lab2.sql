@@ -40,7 +40,7 @@ CREATE TABLE estaciones(
     fecha_inauguracion date NOT NULL,
     linea_id varchar(3) NOT NULL,
     color_estacion varchar(5),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
     FOREIGN KEY (linea_id) REFERENCES lineas(id)
 );
 
