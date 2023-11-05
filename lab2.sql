@@ -240,6 +240,8 @@ INSERT INTO estaciones (id, nombre, fecha_inauguracion, linea_id, color_estacion
 ("L6-8", "Inés de Suárez", "2017/11/02", "L6", "COMUN"),
 ("L6-9", "Los Leones", "2017/11/02", "L6", "COMUN");
 
+--INSERTAR DATOS
+
 INSERT TO codigos(id, descripcion) VALUES
 ('A0', 'Cierre completo al publico'),
 ('K5', 'Corte de luz en linea'),
