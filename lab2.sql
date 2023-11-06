@@ -260,11 +260,11 @@ INSERT INTO reportador(id, nombres, apellidos, sueldo) VALUES
 ('26575596-8','Laura', 'Romero', 100000 );
 
 INSERT INTO reporte(id, fecha_hora, codigo_id, comentario, reportador_id) VALUES
-('25','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' );
-('26','2023/11/15:9:35:18', 'A0', 'Cierre completo al publico estacion', '21603579-8' );
-('27','2023/12/05:11:55:25', 'SS', 'Persona en la via', '26575596-8' );
-('28','202/12/24:12:15:03', 'Z6', 'Asalto en estacion', '11521635-4' );
-('29','2023/12/26:15:30:50', 'X10', 'Explosion en estacion/ Ataque por Corxea', '21603579-8' );
+('25','2023/11/02:8:45:12', 'K5', 'Corte de luz masivo en linea 1', '11521635-4' ),
+('26','2023/11/15:9:35:18', 'A0', 'Cierre completo al publico estacion', '21603579-8' ),
+('27','2023/12/05:11:55:25', 'SS', 'Persona en la via', '26575596-8' ),
+('28','202/12/24:12:15:03', 'Z6', 'Asalto en estacion', '11521635-4' ),
+('29','2023/12/26:15:30:50', 'X10', 'Explosion en estacion/ Ataque por Corxea', '21603579-8' ),
 ('30','2023/12/31:20:10:36', 'C8', 'Pelea en estacion', '26575596-8' );
 
 
@@ -318,6 +318,9 @@ INSERT INTO reportes_estaciones(estacion_id, fecha_hora, reportador_id, reporte_
 DELETE FROM estaciones WHERE linea_id = 'L4';
 DELETE FROM lineas WHERE id='L4';
 
+-- PREGUNTA FINAL DEL LAB
+
+-- SE INSERTAN REPORTES A MAS ESTACIONES PARA ASI PODER VERIFICAR MEJOR LOS RESULTADOS DE LAS QUERIES
 INSERT INTO reportes_estaciones(estacion_id, fecha_hora, reportador_id, reporte_id) VALUES
 ('L1-1', '2023/11/03:9:55:30', '15876325-6', '25' ),
 ('L1-1', '2023/11/04:10:55:30', '11521635-4', '25' ),
@@ -328,6 +331,21 @@ INSERT INTO reportes_estaciones(estacion_id, fecha_hora, reportador_id, reporte_
 ('L1-4', '2023/11/08:12:55:30', '21603579-8', '29' ),
 ('L1-5', '2023/11/09:12:55:30', '26575596-8', '30' ),
 ('L1-7', '2023/11/20:21:55:30', '26575596-8', '30' );
+
+-- QUERY FINAL
+SELECT estaciones.nombre FROM estaciones JOIN reportes_estaciones ON estaciones.id = reportes_estaciones.estacion_id 
+JOIN (SELECT COUNT(*), estaciones.id FROM reportes_estaciones JOIN estaciones ON estaciones.id = reportes_estaciones.estacion_id GROUP BY estaciones.id) AS t1 
+ON t1.id = estaciones.id 
+WHERE t1.COUNT = (SELECT max(COUNT) FROM (SELECT COUNT(*), estaciones.id FROM reportes_estaciones JOIN estaciones ON estaciones.id = reportes_estaciones.estacion_id GROUP BY estaciones.id) AS t2) 
+GROUP BY estaciones.nombre;
+
+-- DEBERIA RETORNAR:
+--  nombre
+-------------
+-- Las Rejas
+-- Neptuno
+-- San Pablo
+--(3 filas)
 
 
 
